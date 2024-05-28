@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Kabeer Arora's portfolio website.",
+  image = "/favicon.svg",
+} = Astro.props;
+
+import Header from "../components/Header.astro";
+import Main from "../components/Main.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Main>
+      <Header />
+      <slot />
+    </Main>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+</style>
