@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import ProjectList from "../components/ProjectList.astro";
 
 const projects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
@@ -33,9 +33,15 @@ const projects = await getCollection("projects", ({ data }) => {
       <h2 class="text-lg underline mb-8">Featured Projects</h2>
       <div class="space-y-8">
         {
-          projects.map(async (project) => {
-            return <ProjectCard project={project} />;
-          })
+          projects
+            .sort(
+              (a, b) =>
+                Date.parse(b.data.date.toDateString()) -
+                Date.parse(a.data.date.toDateString())
+            )
+            .map(async (project) => {
+              return <ProjectList project={project} />;
+            })
         }
       </div>
       <a
