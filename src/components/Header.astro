@@ -1,18 +1,30 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <header class="w-full h-[10vh] grid grid-cols-4">
   <section class="flex items-center justify-start">
-    <h1 class="text-2xl font-bold">kabeer.</h1>
+    <a href="/" class="text-2xl font-bold">kabeer.</a>
   </section>
-  <section class="col-span-2 flex items-center justify-evenly">
-    <a href="/about">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/contact">Contact</a>
+  <section class="col-span-2 flex items-center justify-center">
+    <a href="/about" class="mx-6">About</a>
+    <a href="/projects" class="mx-6">Projects</a>
+    <a href="/blogs" class="mx-6">Blogs</a>
   </section>
-  <section class="flex items-center justify-evenly">
-    <a href="/github">Github</a>
-    <a href="/linkedin">LinkedIn</a>
+  <section class="flex items-center justify-end">
+    <a
+      href="https://github.com/kabeer05"
+      target="_blank"
+      class="bg-white rounded-full m-2.5 w-12 h-12 text-lg flex justify-center items-center flex-col shadow-md transition-all duration-200 ease-out hover:scale-110 hover:text-[#2b3137]"
+    >
+      <Icon name={"github"} title="Github Profile" width={32} height={32} />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/kabeerarora05/"
+      target="_blank"
+      class="bg-white rounded-full m-2.5 w-12 h-12 text-lg flex justify-center items-center flex-col shadow-md transition-all duration-200 ease-out hover:scale-110 hover:text-[#0762C8]"
+    >
+      <Icon name={"linkedin"} title="LinkedIn Profile" width={32} height={32} />
+    </a>
   </section>
 </header>
