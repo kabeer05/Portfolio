@@ -1,0 +1,11 @@
+{
+  "title": "SteamMini",
+  "description": "Simple Steam API wrapper exposing some useful methods",
+  "links": {
+    "github": "https://github.com/kabeer05/steam-mini",
+    "demo": ""
+  },
+  "image": "../../assets/images/demo_image.png",
+  "date": "2022-05-22",
+  "featured": true
+}
