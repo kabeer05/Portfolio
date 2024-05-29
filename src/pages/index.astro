@@ -1,27 +1,153 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Kabeer Arora | Portfolio">
   <main>
     <!-- Hero Section -->
-    <section class="pt-36">
+    <section class="pt-32">
       <div class="w-[80px] h-[80px] bg-gray-300 rounded-full"></div>
-      <h1 class="text-2xl py-4">I am an expert in making mistakes</h1>
-      <p class="text-md text-justify opacity-60">
-        Hey there! I'm your friendly neighborhood programmer a.k.a. <strong
-          >Kabeer Arora</strong
-        >, always pushing the boundaries of web development. By day, I'm a
-        full-stack programming superhero; by night, I'm a code wizard cooking up
-        my next big project. On top of that, I'm currently immersing myself in
-        the realm of cybersecurity, focusing on penetration testing and red
-        teaming. Dive into my portfolio, and witness the extent of my
-        capabilities!
+      <h1 class="text-2xl pt-4">I am an expert in making mistakes</h1>
+      <p class="text-md text-justify opacity-60 py-4">
+        Hey there! I'm your friendly neighborhood programmer a.k.a.
+        <strong>Kabeer Arora</strong>, always pushing the boundaries of web
+        development. By day, I'm a full-stack programming superhero; by night,
+        I'm a code wizard cooking up my next big project. On top of that, I'm
+        currently immersing myself in the realm of cybersecurity, focusing on
+        penetration testing and red teaming. Dive into my portfolio, and witness
+        the extent of my capabilities!
       </p>
-      <a href="/about"></a>
+      <a href="/assets/Resume.pdf" target="_blank" class="underline"
+        >Check out my Resume!</a
+      >
+    </section>
+
+    <!-- Projects Section -->
+    <section class="pt-32">
+      <h2 class="text-lg underline mb-8">Featured Projects</h2>
+      <div class="space-y-8">
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start border-b border-gray-300 pb-8"
+        >
+          <div class="md:w-1/2 mb-4 md:mb-0">
+            <h3 class="text-xl font-semibold mb-2">Project 1</h3>
+            <p class="text-sm text-gray-500 mb-2">Date: January 2023</p>
+            <p class="text-md text-gray-700 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              facilisi. Donec nec purus eget nunc.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-4 py-2 bg-black text-white font-medium text-sm rounded hover:bg-gray-800"
+            >
+              View Project
+            </a>
+          </div>
+          <div class="md:w-1/2 md:pl-6">
+            <Image
+              src="https://via.placeholder.com/400x200"
+              alt="Project 1"
+              class="rounded-lg"
+              inferSize={true}
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start border-b border-gray-300 pb-8"
+        >
+          <div class="md:w-1/2 mb-4 md:mb-0">
+            <h3 class="text-xl font-semibold mb-2">Project 2</h3>
+            <p class="text-sm text-gray-500 mb-2">Date: February 2023</p>
+            <p class="text-md text-gray-700 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              facilisi. Donec nec purus eget nunc.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-4 py-2 bg-black text-white font-medium text-sm rounded hover:bg-gray-800"
+            >
+              View Project
+            </a>
+          </div>
+          <div class="md:w-1/2 md:pl-6">
+            <Image
+              src="https://via.placeholder.com/400x200"
+              alt="Project 2"
+              class="rounded-lg"
+              inferSize={true}
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start border-b border-gray-300 pb-8"
+        >
+          <div class="md:w-1/2 mb-4 md:mb-0">
+            <h3 class="text-xl font-semibold mb-2">Project 3</h3>
+            <p class="text-sm text-gray-500 mb-2">Date: March 2023</p>
+            <p class="text-md text-gray-700 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              facilisi. Donec nec purus eget nunc.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-4 py-2 bg-black text-white font-medium text-sm rounded hover:bg-gray-800"
+            >
+              View Project
+            </a>
+          </div>
+          <div class="md:w-1/2 md:pl-6">
+            <Image
+              src="https://via.placeholder.com/400x200"
+              alt="Project 3"
+              class="rounded-lg"
+              inferSize={true}
+            />
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:items-start pb-8">
+          <div class="md:w-1/2 mb-4 md:mb-0">
+            <h3 class="text-xl font-semibold mb-2">Project 4</h3>
+            <p class="text-sm text-gray-500 mb-2">Date: April 2023</p>
+            <p class="text-md text-gray-700 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              facilisi. Donec nec purus eget nunc.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-4 py-2 bg-black text-white font-medium text-sm rounded hover:bg-gray-800"
+            >
+              View Project
+            </a>
+          </div>
+          <div class="md:w-1/2 md:pl-6">
+            <Image
+              src="https://via.placeholder.com/400x200"
+              alt="Project 4"
+              class="rounded-lg"
+              inferSize={true}
+            />
+          </div>
+        </div>
+      </div>
+      <a
+        href="/projects"
+        class="block mt-8 text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-md font-medium text-center shadow-md transition-colors duration-300 ease-in-out"
+      >
+        View All Projects
+      </a>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="pt-32">
+      <h2 class="text-lg underline mb-8">Latest Blogs</h2>
+      <div class="py-4">
+        <h3 class="text-xl font-semibold mb-2">No blogs yet!</h3>
+        <p class="text-md text-gray-700 mb-4 opacity-60">
+          I'm currently working on some amazing content for you. Stay tuned!
+        </p>
+      </div>
     </section>
   </main>
 </Layout>
-
-<!--  #8c97c8 -->
