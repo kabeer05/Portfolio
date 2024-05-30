@@ -2,7 +2,10 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<header class="w-full h-[10vh] grid grid-cols-2 lg:grid-cols-4">
+<header
+  class="w-full h-[10vh] grid grid-cols-2 lg:grid-cols-4"
+  transition:persist
+>
   <section class="flex items-center px-6 sm:px-0 justify-start">
     <a href="/" class="text-2xl font-bold">kabeer.</a>
   </section>
@@ -28,8 +31,73 @@ import { Icon } from "astro-icon/components";
     </a>
   </section>
   <section class="flex lg:hidden items-center justify-end px-6">
-    <button class="" aria-label="Open Menu">
+    <button id="menu-button" aria-label="Open Menu">
       <Icon name={"hamburger"} width={24} height={24} title="SideMenu Icon" />
     </button>
   </section>
+
+  <!-- SideMenu -->
+  <section
+    id="side-menu"
+    class="fixed top-0 left-0 w-screen h-[100vh] z-50 hidden sm:hidden"
+  >
+    <section
+      class="w-full h-[60%] relative bg-white flex flex-col items-center justify-center"
+    >
+      <a href="/" class="mx-6 mb-4 text-lg">Home</a>
+      <a href="/projects" class="mx-6 mb-4 text-lg">Projects</a>
+      <a href="/blogs" class="mx-6 mb-4 text-lg">Blogs</a>
+      <a href="/contact" class="mx-6 mb-4 text-lg">Contact</a>
+      <div class="flex items-center justify-center">
+        <a
+          href="https://github.com/kabeer05"
+          target="_blank"
+          class="bg-white rounded-full m-2.5 w-12 h-12 text-lg flex justify-center items-center shadow-md transition-transform duration-200 ease-out hover:scale-110 hover:text-[#2b3137]"
+        >
+          <Icon name={"github"} title="Github Profile" width={32} height={32} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/kabeerarora05/"
+          target="_blank"
+          class="bg-white rounded-full m-2.5 w-12 h-12 text-lg flex justify-center items-center shadow-md transition-transform duration-200 ease-out hover:scale-110 hover:text-[#0762C8]"
+        >
+          <Icon
+            name={"linkedin"}
+            title="LinkedIn Profile"
+            width={32}
+            height={32}
+          />
+        </a>
+      </div>
+      <button id="close-menu" class="absolute top-4 right-4 text-4xl"
+        >&times;</button
+      >
+    </section>
+    <section class="w-full h-[40%] bg-black bg-opacity-10 backdrop-blur-lg">
+    </section>
+  </section>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.getElementById("menu-button");
+    const closeMenu = document.getElementById("close-menu");
+    const sideMenu = document.getElementById("side-menu");
+    menu!.addEventListener("click", () => {
+      document.body.style.overflow = "hidden";
+      console.log("clicked");
+      if (window.innerWidth < 1024) {
+        sideMenu!.style.display = "block";
+      }
+    });
+    closeMenu!.addEventListener("click", () => {
+      document.body.style.overflow = "auto";
+      sideMenu!.style.display = "none";
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) {
+        sideMenu!.style.display = "none";
+      }
+    });
+  });
+</script>
