@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact | Kabeer Arora">
+  <main
+    class="w-full h-auto grid grid-rows-2 sm:h-[70vh] sm:gap-11 sm:grid-rows-1 sm:grid-cols-2"
+  >
+    <section class="flex flex-col items-start justify-center">
+      <h1 class="text-xl font-bold text-gray-900 mb-5">Contact Me 🚀</h1>
+      <p class="mb-5 text-md opacity-60">
+        Feel free to reach out to me for collaborations, projects, or just to
+        say hi! I will try to get back to you as soon as possible.
+      </p>
+      <div class="flex items-center mt-5">
+        <a
+          href="https://x.com/KabeerArora9"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-700">Twitter</a
+        >
+        <span class="mx-2">•</span>
+        <a
+          href="https://www.linkedin.com/in/kabeerarora05/"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-700">LinkedIn</a
+        >
+      </div>
+    </section>
+    <section class="flex items-center justify-center">
+      <form class="w-full mb-6 sm:mb-0">
+        <div class="mb-5">
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+            >Full Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="John Doe"
+            required
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Your email</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="name@flowbite.com"
+            required
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-90"
+            >Your message</label
+          >
+          <textarea
+            id="message"
+            rows="4"
+            class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Leave a comment..."></textarea>
+        </div>
+        <button
+          type="submit"
+          class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >Submit</button
+        >
+      </form>
+    </section>
+  </main>
+</Layout>

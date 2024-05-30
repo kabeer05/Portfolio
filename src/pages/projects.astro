@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => {
+  return (
+    Date.parse(b.data.date.toDateString()) -
+    Date.parse(a.data.date.toDateString())
+  );
+});
+---
+
+<Layout title="Projects | Kabeer Arora">
+  <main>
+    <h1
+      class="text-xl
+        font-bold
+        text-center
+        mt-8
+        mb-4
+        text-gray-900"
+    >
+      Projects 💡
+    </h1>
+  </main>
+</Layout>
