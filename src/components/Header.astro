@@ -83,6 +83,7 @@ import { Icon } from "astro-icon/components";
     const menu = document.getElementById("menu-button");
     const closeMenu = document.getElementById("close-menu");
     const sideMenu = document.getElementById("side-menu");
+    const menuLinks = document.querySelectorAll("#side-menu section a");
     menu!.addEventListener("click", () => {
       document.body.style.overflow = "hidden";
       if (window.innerWidth < 1024) {
@@ -98,6 +99,13 @@ import { Icon } from "astro-icon/components";
         sideMenu!.style.display = "none";
         document.body.style.overflow = "auto";
       }
+    });
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        document.body.style.overflow = "auto";
+        sideMenu!.style.display = "none";
+      });
     });
   });
 </script>
