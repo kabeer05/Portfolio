@@ -85,7 +85,6 @@ import { Icon } from "astro-icon/components";
     const sideMenu = document.getElementById("side-menu");
     menu!.addEventListener("click", () => {
       document.body.style.overflow = "hidden";
-      console.log("clicked");
       if (window.innerWidth < 1024) {
         sideMenu!.style.display = "block";
       }
@@ -97,6 +96,7 @@ import { Icon } from "astro-icon/components";
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1024) {
         sideMenu!.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     });
   });
