@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ProjectList from "../components/ProjectList.astro";
+import AvatarImage from "../assets/images/avatar.svg";
 
 const projects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
@@ -12,7 +14,15 @@ const projects = await getCollection("projects", ({ data }) => {
   <main>
     <!-- Hero Section -->
     <section class="pt-32">
-      <div class="w-[80px] h-[80px] bg-gray-300 rounded-full"></div>
+      <div class="w-[100px] h-[100px] bg-[#F5F5F5] rounded-full">
+        <Image
+          src={AvatarImage}
+          alt="Avatar"
+          width={100}
+          height={100}
+          class="rounded-full"
+        />
+      </div>
       <h1 class="text-2xl pt-4">I am an expert in making mistakes</h1>
       <p class="text-md text-justify opacity-60 py-4">
         Hey there! 👋 I'm your friendly neighborhood programmer a.k.a.
