@@ -1,5 +1,57 @@
 ---
+export const prerender = false;
+
 import Layout from "../layouts/Layout.astro";
+
+let errorMessage;
+const siteUrl = import.meta.env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${import.meta.env.PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+  : `http://localhost:4321`;
+console.log(siteUrl);
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+
+    const response = await fetch(`${siteUrl}/api/sendEmail.json`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      console.log(
+        "Email sent successfully: ",
+        response.statusText,
+        responseData
+      );
+    } else {
+      console.error(
+        "Failed to send email: ",
+        response.statusText,
+        responseData
+      );
+      switch (response.status) {
+        case 400:
+          errorMessage = "Please fill in all the fields.";
+          break;
+        case 500:
+          errorMessage = "Internal server error. Please try again later.";
+          break;
+      }
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error);
+    }
+  }
+}
 ---
 
 <Layout title="Contact | Kabeer Arora">
@@ -26,8 +78,8 @@ import Layout from "../layouts/Layout.astro";
         >
       </div>
     </section>
-    <section class="flex items-center justify-center">
-      <form class="w-full mb-6 sm:mb-0">
+    <section class="flex items-start justify-center flex-col mb-6 sm:mb-0">
+      <form class="w-full" method="POST">
         <div class="mb-5">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
             >Full Name</label
@@ -35,6 +87,7 @@ import Layout from "../layouts/Layout.astro";
           <input
             type="text"
             id="name"
+            name="name"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="John Doe"
             required
@@ -49,6 +102,7 @@ import Layout from "../layouts/Layout.astro";
           <input
             type="email"
             id="email"
+            name="email"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="johndoe@example.com"
             required
@@ -63,6 +117,7 @@ import Layout from "../layouts/Layout.astro";
           <textarea
             id="message"
             rows="4"
+            name="message"
             class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Leave a comment..."></textarea>
         </div>
@@ -72,6 +127,7 @@ import Layout from "../layouts/Layout.astro";
           >Submit</button
         >
       </form>
+      {errorMessage && <p class="text-red-600 text-sm mt-2">{errorMessage}</p>}
     </section>
   </main>
 </Layout>
