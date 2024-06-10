@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ProjectList from "../components/ProjectList.astro";
-import AvatarImage from "../assets/images/avatar.svg";
+import AvatarImage from "../assets/images/avatar.jpeg";
 
 const projects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
@@ -19,8 +19,8 @@ const projects = await getCollection("projects", ({ data }) => {
           src={AvatarImage}
           alt="biblically accurate me"
           title="Biblically accurate me"
-          width={100}
-          height={100}
+          width={1000}
+          height={1000}
           class="rounded-full"
         />
       </div>
@@ -34,8 +34,10 @@ const projects = await getCollection("projects", ({ data }) => {
         penetration testing and red teaming. Dive into my portfolio, and witness
         the extent of my capabilities! 🌟
       </p>
-      <a href="/assets/Resume.pdf" target="_blank" class="underline"
-        >Check out my Resume!</a
+      <a
+        href="https://drive.google.com/file/d/1IeJk41reUp2PjeiS7IGj4bqVE38Yk_Jv/view?usp=sharing"
+        target="_blank"
+        class="underline">Check out my Resume!</a
       >
     </section>
 

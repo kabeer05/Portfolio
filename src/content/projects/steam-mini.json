@@ -3,9 +3,11 @@
   "description": "Simple Steam API wrapper exposing some useful methods",
   "links": {
     "github": "https://github.com/kabeer05/steam-mini",
-    "demo": ""
+    "demo": "https://www.npmjs.com/package/steam-mini-api"
   },
-  "image": "../../assets/images/demo_image.png",
-  "date": "2022-05-22",
-  "featured": true
+  "image": "../../assets/images/steam-mini.png",
+  "date": "2024-06-08",
+  "featured": true,
+  "type": "Personal Project",
+  "tags": ["Node.js", "Steam", "API", "Wrapper"]
 }

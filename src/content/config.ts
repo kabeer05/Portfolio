@@ -24,7 +24,7 @@ const projectsCollection = defineCollection({
           demo: z.string().optional(),
         })
         .strict(),
-      image: image().optional(),
+      image: image(),
       date: z.string().transform((date) => new Date(date)),
       featured: z.boolean(),
     }),
